@@ -1,7 +1,7 @@
 <?php
 
-define("ENV", "DEV");
-//define("ENV", "STAGING");
+//define("ENV", "DEV");
+define("ENV", "STAGING");
 //define("ENV", "PROD");
 
 if (ENV == "PROD") {
