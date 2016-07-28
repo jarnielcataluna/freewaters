@@ -55,7 +55,7 @@ class DBHandler{
 
     public function buildTables(){
         $sql =  'DROP TABLE IF EXISTS `leads`;
-                CREATE TABLE `propelrr_freewaters`.`leads` ( `id` INT NOT NULL AUTO_INCREMENT , `email` VARCHAR(255) NOT NULL , `code` VARCHAR(25) NOT NULL , `date` DATETIME NOT NULL , `status` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;';
+                CREATE TABLE `leads` ( `id` INT NOT NULL AUTO_INCREMENT , `email` VARCHAR(255) NOT NULL , `code` VARCHAR(25) NOT NULL , `date` DATETIME NOT NULL , `status` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;';
 
         $query = $this->pdo->prepare($sql);
         $query->execute();
