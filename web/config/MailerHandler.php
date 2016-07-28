@@ -8,7 +8,10 @@ class MailerHandler
 
     public function __construct()
     {
-        $this->transport = Swift_MailTransport::newInstance();
+        $this->transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
+            ->setUsername('tnf100ph@gmail.com')
+            ->setPassword('breakBoundaries$$##123')
+        ;
     }
 
     public function sendMail($data)
@@ -52,7 +55,7 @@ class MailerHandler
         $body .= '                            <td>';
         $body .= '                                <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">';
         $body .= '                                    <tr>';
-        $body .= '                                        <td style="padding:0;"><img src="' . $_SERVER['HTTP_HOST'] . 'images/banner.jpg" alt="" width="100%" style=="display:block;"></td>';
+        $body .= '                                        <td style="padding:0;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/banner.jpg" alt="" width="100%" style=="display:block;"></td>';
         $body .= '                                    </tr>';
         $body .= '                                </table>';
         $body .= '                                ';
@@ -68,28 +71,28 @@ class MailerHandler
         $body .= '                            </td>';
         $body .= '                        </tr>';
         $body .= '                        <!-- <tr>';
-        $body .= '                            <td><img src="' . $_SERVER['HTTP_HOST'] . 'images/freewater-logo.jpg" alt="" width="100%" style="display:block;"></td>';
+        $body .= '                            <td><img src="' . $_SERVER['HTTP_HOST'] . '/images/freewater-logo.jpg" alt="" width="100%" style="display:block;"></td>';
         $body .= '                        </tr>';
         $body .= '                        <tr>';
         $body .= '                            <td>';
         $body .= '                               <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#17b3f6">';
         $body .= '                                   <tr>';
-        $body .= '                                       <td style="padding:0px 70px;"><img src="' . $_SERVER['HTTP_HOST'] . 'images/product1.jpg" alt=""></td>';
+        $body .= '                                       <td style="padding:0px 70px;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/product1.jpg" alt=""></td>';
         $body .= '                                   </tr>';
         $body .= '                               </table> ';
         $body .= '                            </td>';
         $body .= '                        </tr> -->';
-        $body .= '                        <!-- <tr><td><img src="' . $_SERVER['HTTP_HOST'] . 'images/howto-join.jpg" alt="" width="100%" style="display:block;"></td></tr> -->';
+        $body .= '                        <!-- <tr><td><img src="' . $_SERVER['HTTP_HOST'] . '/images/howto-join.jpg" alt="" width="100%" style="display:block;"></td></tr> -->';
         $body .= '                    </table>';
         $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">';
         $body .= '                        <tr>';
-        $body .= '                            <td><img src="' . $_SERVER['HTTP_HOST'] . 'images/product.jpg" width="100%" style="display:block;"></td>';
+        $body .= '                            <td><img src="' . $_SERVER['HTTP_HOST'] . '/images/product.jpg" width="100%" style="display:block;"></td>';
         $body .= '                        </tr>';
         $body .= '                        <tr>';
-        $body .= '                            <td align="center" style="text-align: center; max-width: 100%; padding: 5px 0;"><a href="https://www.facebook.com/" title="Go to our Facebook Fan Page"  target="_blank"><img src="' . $_SERVER['HTTP_HOST'] . 'images/step.jpg" width="auto" style="display:inline-block;" ></a></td>';
+        $body .= '                            <td align="center" style="text-align: center; max-width: 100%; padding: 5px 0;"><a href="https://www.facebook.com/" title="Go to our Facebook Fan Page"  target="_blank"><img src="' . $_SERVER['HTTP_HOST'] . '/images/step.jpg" width="auto" style="display:inline-block;" ></a></td>';
         $body .= '                        </tr>';
         $body .= '                        <tr>';
-        $body .= '                            <td align="center" style="text-align: center; max-width: 100%; padding: 5px 0;"><img src="' . $_SERVER['HTTP_HOST'] . 'images/freewater-img.jpg" width="100%"></td>';
+        $body .= '                            <td align="center" style="text-align: center; max-width: 100%; padding: 5px 0;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/freewater-img.jpg" width="100%"></td>';
         $body .= '                        </tr>';
         $body .= '                    </table>';
         $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">';
@@ -98,8 +101,8 @@ class MailerHandler
         $body .= '                                <table width="290" cellpadding="0" cellspacing="0" align="left" valign="center" style="border: 2px dashed #de0013;">';
         $body .= '                                    <tr>';
         $body .= '                                        <td style="padding:10px; text-align: center;" align="center">';
-        $body .= '                                            <img src="' . $_SERVER['HTTP_HOST'] . 'images/res-toe-run.jpg" width="50%" style="display: inline-block; width:48%; vertical-align: top;" alt="">';
-        $body .= '                                            <img src="' . $_SERVER['HTTP_HOST'] . 'images/rox.jpg" width="50%" style="display: inline-block; width:48%; vertical-align: top;" alt="">';
+        $body .= '                                            <img src="' . $_SERVER['HTTP_HOST'] . '/images/res-toe-run.jpg" width="50%" style="display: inline-block; width:48%; vertical-align: top;" alt="">';
+        $body .= '                                            <img src="' . $_SERVER['HTTP_HOST'] . '/images/rox.jpg" width="50%" style="display: inline-block; width:48%; vertical-align: top;" alt="">';
         $body .= '                                        </td>';
         $body .= '                                    </tr>';
         $body .= '                                    <tr>';
