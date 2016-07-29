@@ -14,13 +14,14 @@ if(isset($_POST) && !empty($_POST)){
         $data['code'] = 'CODE ' . $code;
 
         if($db->insertLead($data)){
-            if($mailer->sendMail($data)){
+            $validate = $mailer->sendMail($data);
+            if($validate == 'sent'){
                 $response = array('status' => 'success', 'data' => array(
                     'message' => 'mail has been sent to email')
                 );
             }else{
                 $response = array('status' => 'error', 'data' => array(
-                    'message' => 'mail not sent')
+                    'message' => $validate)
                 );
             }
         }else{

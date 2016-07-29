@@ -17,6 +17,9 @@ class MailerHandler
     public function sendMail($data)
     {
         $mailer = Swift_Mailer::newInstance($this->transport);
+//        $logger = new \Swift_Plugins_Loggers_EchoLogger();
+//        $mailer->registerPlugin(new \Swift_Plugins_LoggerPlugin($logger));
+
         $body = '';
         $body .= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
         $body .= '<html xmlns="http://www.w3.org/1999/xhtml">';
@@ -138,12 +141,18 @@ class MailerHandler
         $body .= '        </table>';
         $body .= '    </body>';
         $body .= '</html>';
+
         $message = Swift_Message::newInstance('This is an awesome email')
             ->setFrom(array('postmaster@freewaters.com.ph' => 'Awesome Developer'))
             ->setTo($data['email'])
             ->setBody($body, 'text/html');
 
-        $result = $mailer->send($message);
+        if (!$mailer->send($message, $errors)) {
+            $result =  "Error:" . $errors;
+        }else{
+            $result = 'sent';
+        }
+
 
         return $result;
     }
