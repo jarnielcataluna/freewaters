@@ -9,8 +9,8 @@ class MailerHandler
     public function __construct()
     {
         $this->transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
-            ->setUsername('tnf100ph@gmail.com')
-            ->setPassword('breakBoundaries$$##123')
+            ->setUsername('freewaters.philippines@gmail.com')
+            ->setPassword('freewaters123@@')
         ;
     }
 
