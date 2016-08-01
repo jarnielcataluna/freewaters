@@ -35,7 +35,8 @@ class MailerHandler
         $body .= '                width: 100%;';
         $body .= '                background-color: #ffffff;';
         $body .= '            }';
-        $body .= '            .ExternalClass { width: 100%;';
+        $body .= '            .ExternalClass {';
+        $body .= '                width: 100%;';
         $body .= '                background-color: #ffffff;';
         $body .= '            }';
         $body .= '            table {';
@@ -60,42 +61,51 @@ class MailerHandler
         $body .= '                                    <tr>';
         $body .= '                                        <td style="padding:0;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/banner.jpg" alt="" width="100%" style=="display:block;"></td>';
         $body .= '                                    </tr>';
-        $body .= '                                </table>';
-        $body .= '                                ';
+        $body .= '                                </table>  ';
         $body .= '                            </td>';
         $body .= '                        </tr>';
         $body .= '                    </table>';
         $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">';
         $body .= '                        <tr>';
         $body .= '                            <td class="mobile-padding" style="padding: 20px 30px;">';
-        $body .= '                                <h1 style="color:#1b1b1b; font-size:24px; line-height: 30px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 20px 0; mso-line-height-rule:exactly; text-align:center; font-weight:normal; ">Thank You participating in our quiz!</h1>';
-        $body .= '                                <p style="color:#1b1b1b; font-size:18px; line-height: 24px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 10px 0; mso-line-height-rule:exactly; text-align:center;">You\'re already entitled to a <span style="color:#a20e1b;">30% discount at Res-Toe-Run and ROX </span> <br>branches when you present this coupon.</p>';
-        $body .= '                                <p style="color:#1b1b1b; font-style:italic; font-size:16px; line-height: 24px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 10px 0; mso-line-height-rule:exactly; text-align:center;">(coupon at the bottom of this email)</p>';
+        $body .= '                                <h1 style="color:#414042; font-size:20px; line-height: 28px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 5px 0; mso-line-height-rule:exactly; text-align:center; font-weight:bold; ">Thank you for participating in our quiz!</h1>';
+        $body .= '                                <p style="color:#414042; font-size:15px; line-height: 18px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 10px 0; mso-line-height-rule:exactly; text-align:center; font-weight:bold;">You\'re already entitled to a <span style="color:#ed1c24;">30% discount</span> from regularly<br>priced items at <span style="color:#ed1c24;">Res-Toe-Run and R.O.X.</span> when you present<br>this coupon.</p>';
+        $body .= '                                <p style="color:#1b1b1b; font-style:italic; font-size:12px; line-height: 18px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 10px 0; mso-line-height-rule:exactly; text-align:center;">(coupon at the bottom of this email)</p>';
         $body .= '                            </td>';
         $body .= '                        </tr>';
-        $body .= '                        <!-- <tr>';
-        $body .= '                            <td><img src="' . $_SERVER['HTTP_HOST'] . '/images/freewater-logo.jpg" alt="" width="100%" style="display:block;"></td>';
+        $body .= '                    </table>';
+        $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#00c1f7">';
+        $body .= '                        <tr>';
+        $body .= '                            <td style="padding:12px 30px;">';
+        $body .= '                                <h2 style="color:#ffffff; font-size:24px; line-height: 32px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 5px 0; mso-line-height-rule:exactly; text-align:center; font-weight:bold; ">But There’s More!</h2>';
+        $body .= '                                <p style="color:#ffffff; font-size:17px; line-height: 20px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 10px 0; mso-line-height-rule:exactly; text-align:center; font-weight:bold;">Get another 30% discount coupon <br>AND win these prizes courtesy of:</p>';
+        $body .= '                            </td>';
         $body .= '                        </tr>';
         $body .= '                        <tr>';
-        $body .= '                            <td>';
-        $body .= '                               <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#17b3f6">';
-        $body .= '                                   <tr>';
-        $body .= '                                       <td style="padding:0px 70px;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/product1.jpg" alt=""></td>';
-        $body .= '                                   </tr>';
-        $body .= '                               </table> ';
+        $body .= '                            <td style="padding:0;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/promo-img.jpg" width="100%" style="display:block;"></td>';
+        $body .= '                        </tr>';
+        $body .= '                        <tr>';
+        $body .= '                            <td style="padding:12px 30px 20px;">';
+        $body .= '                                <p style="color:#ffffff; font-size:17px; line-height: 20px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 10px 0; mso-line-height-rule:exactly; text-align:center; font-weight:bold;">five male and five female respondents will win their <br>choice of Freewaters shoes or sandals valued at <br>P2,000-P4,000 each.</p>';
         $body .= '                            </td>';
-        $body .= '                        </tr> -->';
-        $body .= '                        <!-- <tr><td><img src="' . $_SERVER['HTTP_HOST'] . '/images/howto-join.jpg" alt="" width="100%" style="display:block;"></td></tr> -->';
+        $body .= '                        </tr>';
+        $body .= '                    </table>';
+        $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#00c1f7">';
+        $body .= '                        <tr>';
+        $body .= '                            <td style="padding:0;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/step.jpg" width="100%" style="display:block;"></td>';
+        $body .= '                        </tr>';
         $body .= '                    </table>';
         $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">';
         $body .= '                        <tr>';
-        $body .= '                            <td><img src="' . $_SERVER['HTTP_HOST'] . '/images/product.jpg" width="100%" style="display:block;"></td>';
+        $body .= '                            <td style="padding:20px 30px 30px; text-align: center;"><a href="https://www.facebook.com/Freewaters/" target="_blank" style="display: inline-block; color:#ffffff; background: #00c1f7; text-decoration: none; height: 40px; line-height: 40px; width: 200px;">Go to Facebook Fan Page</a></td>';
+        $body .= '                        </tr>';
+        $body .= '                    </table>';
+        $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#00c1f7">';
+        $body .= '                        <tr>';
+        $body .= '                            <td style="padding:0;"><a href="http://freewaters.com" target="_blank"><img src="' . $_SERVER['HTTP_HOST'] . '/images/freewater-img.jpg" width="100%" style="display:block;"></a></td>';
         $body .= '                        </tr>';
         $body .= '                        <tr>';
-        $body .= '                            <td align="center" style="text-align: center; max-width: 100%; padding: 5px 0;"><a href="https://www.facebook.com/" title="Go to our Facebook Fan Page"  target="_blank"><img src="' . $_SERVER['HTTP_HOST'] . '/images/step.jpg" width="auto" style="display:inline-block;" ></a></td>';
-        $body .= '                        </tr>';
-        $body .= '                        <tr>';
-        $body .= '                            <td align="center" style="text-align: center; max-width: 100%; padding: 5px 0;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/freewater-img.jpg" width="100%"></td>';
+        $body .= '                            <td style="padding:0;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/support-img.jpg" width="100%" style="display:block;"></td>';
         $body .= '                        </tr>';
         $body .= '                    </table>';
         $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">';
@@ -104,13 +114,12 @@ class MailerHandler
         $body .= '                                <table width="290" cellpadding="0" cellspacing="0" align="left" valign="center" style="border: 2px dashed #de0013;">';
         $body .= '                                    <tr>';
         $body .= '                                        <td style="padding:10px; text-align: center;" align="center">';
-        $body .= '                                            <img src="' . $_SERVER['HTTP_HOST'] . '/images/res-toe-run.jpg" width="50%" style="display: inline-block; width:48%; vertical-align: top;" alt="">';
-        $body .= '                                            <img src="' . $_SERVER['HTTP_HOST'] . '/images/rox.jpg" width="50%" style="display: inline-block; width:48%; vertical-align: top;" alt="">';
+        $body .= '                                            <img src="' . $_SERVER['HTTP_HOST'] . '/images/res-toe-run.jpg" width="auto" style="display: inline-block; max-width:100%; vertical-align: top;" alt="">';
         $body .= '                                        </td>';
         $body .= '                                    </tr>';
         $body .= '                                    <tr>';
-        $body .= '                                        <td style="padding:5px 20px 5px 5px;">';
-        $body .= '                                            <h2 style="color:#de0013; font-size:20px; line-height: 30px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 5px 0; mso-line-height-rule:exactly; text-align:center; font-weight:normal; text-align: center; ">30% Discount Coupon</h2>';
+        $body .= '                                        <td style="padding:5px; text-align: center;">';
+        $body .= '                                            <h2 style="color:#de0013; font-size:18px; line-height: 24px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 5px 0; mso-line-height-rule:exactly; text-align:center; font-weight:bold; text-align: center; text-transform: uppercase; ">30% Discount Coupon</h2>';
         $body .= '                                        </td>';
         $body .= '                                    </tr>';
         $body .= '                                    <tr>';
@@ -118,7 +127,7 @@ class MailerHandler
         $body .= '                                            <table width="190" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#de0013">';
         $body .= '                                                <tr>';
         $body .= '                                                    <td style="padding:10px 10px; background: #de0013;" align="center">';
-        $body .= '                                                        <span style="color:#ffffff; font-size:20px; line-height: 20px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 5px 0; mso-line-height-rule:exactly; font-weight:bold; text-align: center; ">' . $data['code'] . '</span>';
+        $body .= '                                                        <span style="color:#ffffff; font-size:20px; line-height: 24px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 5px 0; mso-line-height-rule:exactly; font-weight:bold; text-align: center; ">' . $data['code'] . '</span>';
         $body .= '                                                    </td>';
         $body .= '                                                </tr>';
         $body .= '                                            </table>';
@@ -128,7 +137,7 @@ class MailerHandler
         $body .= '                                <td width="245" cellpadding="0" cellspacing="0"  valign="center" align="right">';
         $body .= '                                   <table>';
         $body .= '                                       <tr>';
-        $body .= '                                           <td> <p style="color:#de0013; font-size: 16px; line-height:18px; mso-table-lspace:0; mso-table-rspace:0; margin:0; mso-line-height-rule:exactly;  font-weight:normal; text-align: left;">Just present this coupon purchase on any Res | Toe | Run and ROX branches</p>';
+        $body .= '                                           <td> <p style="color:#231f20; font-size: 15px; line-height:18px; mso-table-lspace:0; mso-table-rspace:0; margin:0; mso-line-height-rule:exactly;  font-weight:bold; text-align: left;">Just present this coupon upon <br> purchase on participating <br><span style="color:#ed1c24;">Res | Toe | Run</span> or <span style="color:#ed1c24;">R.O.X.</span> Outlet</p>';
         $body .= '                                           </td>';
         $body .= '                                       </tr>';
         $body .= '                                   </table>';
@@ -142,8 +151,9 @@ class MailerHandler
         $body .= '    </body>';
         $body .= '</html>';
 
-        $message = Swift_Message::newInstance('This is an awesome email')
-            ->setFrom(array('freewaters.philippines@gmail.com' => 'Awesome Developer'))
+
+        $message = Swift_Message::newInstance('30% discount at Res-Toe-Run or ROX')
+            ->setFrom(array('freewaters.philippines@gmail.com' => 'Shoe or False? Quiz'))
             ->setTo($data['email'])
             ->setBody($body, 'text/html');
 
