@@ -98,14 +98,17 @@
                 opacity: 1;
             }
         }
+
         .freewaterform {
-            padding: 5px 20px 20px; clear:both; float:none;
+            padding: 5px 20px 20px;
+            clear: both;
+            float: none;
             position: relative;
             overflow: hidden;
         }
 
         .freewaterform.activated:before {
-            content:'';
+            content: '';
             position: absolute;
             height: 100%;
             background: rgba(255, 255, 255, 0.8);
@@ -122,7 +125,10 @@
             padding: 8px 10px;
             min-width: 200px;
             display: inline-block;
-            font-family: Helvetica, Arial, sans-serif; font-size: 12px; line-height: 18px; color:#1b1b1b;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            line-height: 18px;
+            color: #1b1b1b;
             border-radius: 2px;
             border: 1px solid #ccc;
             letter-spacing: 1px;
@@ -144,7 +150,7 @@
             padding: 0 2rem;
             text-transform: uppercase;
             font-size: 14px;
-            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             text-decoration: none;
             color: #fff;
             font-family: Helvetica, Arial, sans-serif;
@@ -154,7 +160,7 @@
         }
 
         .freewaterform input[type="submit"]:hover {
-            box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+            box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
         }
 
         .freewater-thankyou h2 {
@@ -168,58 +174,61 @@
         .freewater-thankyou h2 span {
             color: #ef6c00;
         }
-        </style>
+    </style>
 </head>
 <body>
-    <div class="freewater-thankyou" style="display: none;">
-        <h2>Thank you! <br />Kindly check your e-mail account <br />for instructions on how to claim your discount.</h2>
-    </div>
-    <div class="freewaterform">
-        <div id="app-loader" class="loading-spinner-wrapper">
-            <div class="loading-spinner"><span class="one"> </span> <span class="two"> </span> <span class="three"> </span></div>
+<div class="freewater-thankyou" style="display: none;">
+    <h2>Thank you! <br/>Kindly check your e-mail account <br/>for instructions on how to claim your discount.</h2>
+</div>
+<div class="freewaterform">
+    <div id="app-loader" class="loading-spinner-wrapper">
+        <div class="loading-spinner"><span class="one"> </span> <span class="two"> </span> <span class="three"> </span>
         </div>
-        <p style="font-style: italic; text-align: center; font-size: 12px;">Hold up! There's still the matter of your <span style="color: #ff3d00 !important;">discount coupon!</span> <br /> Fill up this form so we can send you a coupon for 10% discount off for a pair of sandals from Res-Toe-Run!</p>
-        <form action="email-handler.php"" method="post">
-            <div class="input-wrap"><input id="email" type="email" placeholder="Enter your Email Address" /></div>
-            <div class="input-wrap"><button id="submit" type="button"  >Submit</button></div>
-        </form></div>
+    </div>
+    <p style="font-style: italic; text-align: center; font-size: 12px;">Hold up! There's still the matter of your <span
+            style="color: #ff3d00 !important;">discount coupon!</span> <br/> Fill up this form so we can send you a
+        coupon for 10% discount off for a pair of sandals from Res-Toe-Run!</p>
+
+    <form action="email-handler.php" method="post">
+    <div class="input-wrap"><input id="email" type="email" placeholder="Enter your Email Address"/></div>
+    <div class="input-wrap">
+        <input type="submit" id="submit" value="submit"/>
+    </div>
+    </form></div>
 </body>
 <script>
     'use strict';
-
     var submit = document.getElementById('submit');
-    var email = document.getElementById('email');
-    var tyDiv = document.getElementsByClassName('freewater-thankyou');
-    var formWrap = document.getElementsByClassName('freewaterform');
-    var preLoad = document.getElementById('app-loader');
-    var preLoadSpin = document.getElementsByClassName('loading-spinner');
-    console.log(formWrap[0]);
+    var email = document.getElementById('email_field');
 
-    submit.onclick = function () {
+
+    /**
+     * @return {boolean}
+     */
+
+
+    submit.addEventListener('click',  function () {
+
+
         formWrap[0].classList.add('activated');
         var data = new FormData();
         data.append('email', email.value);
-        console.log('working');
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/email-handler.php');
-        xhr.send(data);
 
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://freewaters.herokuapp.com/raffle-handler.php');
+        xhr.send(data);
 
         xhr.onreadystatechange = function () {
             var DONE = 4;
             var OK = 200;
             if (xhr.readyState === DONE) {
                 if (xhr.status === OK) {
-
-                    formWrap[0].style.display = "none";
-                    tyDiv[0].style.display = "block";
                     var serverResponse = JSON.parse(xhr.responseText);
-                    console.log(serverResponse);
+                    return true;
                 }
             }
         };
-
         return false;
-    };
+    });
 </script>
 </html>

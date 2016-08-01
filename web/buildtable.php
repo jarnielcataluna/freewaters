@@ -4,3 +4,4 @@
    $db = new DBHandler();
    $db->connect();
    $db->buildTables();
+   $db->buildRaffleTables();

@@ -61,6 +61,14 @@ class DBHandler{
         $query->execute();
     }
 
+    public function buildRaffleTables(){
+        $sql =  'DROP TABLE IF EXISTS `leads`;
+                CREATE TABLE `leads_raffle` ( `id` INT NOT NULL AUTO_INCREMENT , `email` VARCHAR(255) NOT NULL , `code` VARCHAR(25) NOT NULL , `date` DATETIME NOT NULL , `status` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;';
+
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+    }
+
     public function insertLead($data){
         if(!is_null($data)){
             $now = new DateTime();
@@ -70,6 +78,32 @@ class DBHandler{
             $status = 1;
 
             $sql = "INSERT INTO `leads` (`email`, `code`, `date`, `status`) VALUES (:email, :code, :date, :status)";
+            $query = $this->pdo->prepare($sql);
+            if($query->execute(array(
+                ':email' => $email,
+                ':code' => $code,
+                ':date' => $date,
+                ':status' => $status
+            ))){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+
+    public function insertRaffleLead($data){
+        if(!is_null($data)){
+            $now = new DateTime();
+            $email = $data['email'];
+            $code = $data['code'];
+            $date = $now->format('Y-m-d H:i:s');
+            $status = 1;
+
+            $sql = "INSERT INTO `leads_raffle` (`email`, `code`, `date`, `status`) VALUES (:email, :code, :date, :status)";
             $query = $this->pdo->prepare($sql);
             if($query->execute(array(
                 ':email' => $email,

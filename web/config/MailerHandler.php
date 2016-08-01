@@ -166,4 +166,23 @@ class MailerHandler
 
         return $result;
     }
+
+    public function sendRaffleMail($data)
+    {
+
+        $mailer = Swift_Mailer::newInstance($this->transport);
+        $body = 'thanks';
+        $message = Swift_Message::newInstance('Raffle Email')
+            ->setFrom(array('freewaters.philippines@gmail.com' => 'Freewaters'))
+            ->setTo($data['email'])
+            ->setBody($body, 'text/html');
+
+        if (!$mailer->send($message, $errors)) {
+            $result =  "Error:" . $errors;
+        }else{
+            $result = 'sent';
+        }
+
+        return $result;
+    }
 }
