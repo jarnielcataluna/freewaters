@@ -198,7 +198,7 @@
 </body>
 <script>
     'use strict';
-    var submit = document.getElementById('submit');
+    var submit = document.getElementById('submit_btn');
     var email = document.getElementById('email_field');
 
 
