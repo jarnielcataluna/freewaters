@@ -224,7 +224,7 @@ class MailerHandler
         $body .= '                        </tr>';
         $body .= '                    </table><table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#00c1f7">';
         $body .= '                        <tr>';
-        $body .= '                            <td style="padding:0;"><a href="http://freewaters.com" target="_blank"><img src="images/freewater-img.jpg" width="100%" style="display:block;"></a></td>';
+        $body .= '                            <td style="padding:0;"><a href="http://freewaters.com" target="_blank"><img src="https://' . $_SERVER['HTTP_HOST'] . '/images/freewater-img.jpg" width="100%" style="display:block;"></a></td>';
         $body .= '                        </tr>';
         $body .= '                        <tr>';
         $body .= '                            <td style="padding:0;"><img src="https://' . $_SERVER['HTTP_HOST'] . '/images/support-img.jpg" width="100%" style="display:block;"></td>';
