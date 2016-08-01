@@ -59,7 +59,7 @@ class MailerHandler
         $body .= '                            <td>';
         $body .= '                                <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">';
         $body .= '                                    <tr>';
-        $body .= '                                        <td style="padding:0;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/banner.jpg" alt="" width="100%" style=="display:block;"></td>';
+        $body .= '                                        <td style="padding:0;"><img src="https://' . $_SERVER['HTTP_HOST'] . '/images/banner.jpg" alt="" width="100%" style=="display:block;"></td>';
         $body .= '                                    </tr>';
         $body .= '                                </table>  ';
         $body .= '                            </td>';
@@ -82,7 +82,7 @@ class MailerHandler
         $body .= '                            </td>';
         $body .= '                        </tr>';
         $body .= '                        <tr>';
-        $body .= '                            <td style="padding:0;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/promo-img.jpg" width="100%" style="display:block;"></td>';
+        $body .= '                            <td style="padding:0;"><img src="https://' . $_SERVER['HTTP_HOST'] . '/images/promo-img.jpg" width="100%" style="display:block;"></td>';
         $body .= '                        </tr>';
         $body .= '                        <tr>';
         $body .= '                            <td style="padding:12px 30px 20px;">';
@@ -92,7 +92,7 @@ class MailerHandler
         $body .= '                    </table>';
         $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#00c1f7">';
         $body .= '                        <tr>';
-        $body .= '                            <td style="padding:0;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/step.jpg" width="100%" style="display:block;"></td>';
+        $body .= '                            <td style="padding:0;"><img src="https://' . $_SERVER['HTTP_HOST'] . '/images/step.jpg" width="100%" style="display:block;"></td>';
         $body .= '                        </tr>';
         $body .= '                    </table>';
         $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">';
@@ -102,10 +102,10 @@ class MailerHandler
         $body .= '                    </table>';
         $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#00c1f7">';
         $body .= '                        <tr>';
-        $body .= '                            <td style="padding:0;"><a href="http://freewaters.com" target="_blank"><img src="' . $_SERVER['HTTP_HOST'] . '/images/freewater-img.jpg" width="100%" style="display:block;"></a></td>';
+        $body .= '                            <td style="padding:0;"><a href="http://freewaters.com" target="_blank"><img src="https://' . $_SERVER['HTTP_HOST'] . '/images/freewater-img.jpg" width="100%" style="display:block;"></a></td>';
         $body .= '                        </tr>';
         $body .= '                        <tr>';
-        $body .= '                            <td style="padding:0;"><img src="' . $_SERVER['HTTP_HOST'] . '/images/support-img.jpg" width="100%" style="display:block;"></td>';
+        $body .= '                            <td style="padding:0;"><img src="https://' . $_SERVER['HTTP_HOST'] . '/images/support-img.jpg" width="100%" style="display:block;"></td>';
         $body .= '                        </tr>';
         $body .= '                    </table>';
         $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">';
@@ -114,7 +114,7 @@ class MailerHandler
         $body .= '                                <table width="290" cellpadding="0" cellspacing="0" align="left" valign="center" style="border: 2px dashed #de0013;">';
         $body .= '                                    <tr>';
         $body .= '                                        <td style="padding:10px; text-align: center;" align="center">';
-        $body .= '                                            <img src="' . $_SERVER['HTTP_HOST'] . '/images/res-toe-run.jpg" width="auto" style="display: inline-block; max-width:100%; vertical-align: top;" alt="">';
+        $body .= '                                            <img src="https://' . $_SERVER['HTTP_HOST'] . '/images/res-toe-run.jpg" width="auto" style="display: inline-block; max-width:100%; vertical-align: top;" alt="">';
         $body .= '                                        </td>';
         $body .= '                                    </tr>';
         $body .= '                                    <tr>';
