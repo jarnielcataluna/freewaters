@@ -21,7 +21,7 @@ if(isset($_POST) && !empty($_POST)){
         $code = strtoupper(substr(md5(rand()), 0, 6));
         $data['code'] = 'CODE ' . $code;
 
-        if($db->insertLead($data)){
+        if($db->insertRaffleLead($data)){
             $validate = $mailer->sendRaffleMail($data);
             if($validate == 'sent'){
                 $response = array('status' => 'success', 'data' => array(
