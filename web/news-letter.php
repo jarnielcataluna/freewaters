@@ -77,7 +77,7 @@ $body .= '                        </tr>';
 $body .= '                    </table>';
 $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">';
 $body .= '                        <tr>';
-$body .= '                            <td style="padding:20px 30px 30px; text-align: center;"><a href="https://www.facebook.com/Freewaters/" target="_blank" style="background-color: #3B579D; display: inline-block; color:#ffffff; background: #3B579D;  text-decoration: none; height: 40px; line-height: 40px; width: 200px;">Go to Facebook Fan Page</a></td>';
+$body .= '                            <td style="padding:20px 30px 30px; text-align: center;"><a href="https://www.facebook.com/freewatersphilippines/?fref=ts" target="_blank" style="background-color: #3B579D; display: inline-block; color:#ffffff; background: #3B579D;  text-decoration: none; height: 40px; line-height: 40px; width: 200px;">Go to Facebook Fan Page</a></td>';
 $body .= '                        </tr>';
 $body .= '                    </table>';
 $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#00c1f7">';
