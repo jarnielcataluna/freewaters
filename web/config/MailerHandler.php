@@ -96,7 +96,7 @@ class MailerHandler
         $body .= '                    </table>';
         $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">';
         $body .= '                        <tr>';
-        $body .= '                            <td style="padding:20px 30px 30px; text-align: center;"><a href="https://www.facebook.com/Freewaters/" target="_blank" style="display: inline-block; color:#ffffff; background: #00c1f7; text-decoration: none; height: 40px; line-height: 40px; width: 200px;">Go to Facebook Fan Page</a></td>';
+        $body .= '                            <td style="padding:20px 30px 30px; text-align: center;"><a href="https://www.facebook.com/freewatersphilippines/?fref=ts" target="_blank" style="display: inline-block; color:#ffffff; background: #3B579D; text-decoration: none; height: 40px; line-height: 40px; width: 200px;">Go to Facebook Fan Page</a></td>';
         $body .= '                        </tr>';
         $body .= '                    </table>';
         $body .= '                    <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#00c1f7">';
@@ -219,6 +219,7 @@ class MailerHandler
         $body .= '                            <td class="mobile-padding" style="padding: 20px 30px;">';
         $body .= '                                <h1 style="font-family: Arial, Helvetica, sans-serif; color:#1E74BA; font-size:20px; line-height: 28px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 5px 0; mso-line-height-rule:exactly; text-align:center; font-weight:bold; ">You are now part of the the Freewaters\' raffle promo!</h1 > ';
         $body .= '                                <p style = "font-family: Arial, Helvetica, sans-serif; color:#414042; font-size:15px; line-height: 18px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 10px 0; mso-line-height-rule:exactly; text-align:center; font-weight:normal;" > Not only that, here\'s another <span style="color:#ed1c24;">30% discount</span> when<br>you purchase and regular priced items at <span style="color:#ed1c24;">Res-Toe-Run <br>and R.O.X.</span> </p>';
+        $body .= '                                <p style = "font-family: Arial, Helvetica, sans-serif; color:#414042; font-size:15px; line-height: 18px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 10px 0; mso-line-height-rule:exactly; text-align:center; font-weight:normal;" > Not only that, here\'s another <span style="color:#ed1c24;">30% discount</span> when<br>you purchase and regular priced items at <span style="color:#ed1c24;">Res-Toe-Run <br>and R.O.X.</span> </p>';
         $body .= '                                <p style="font-family: Arial, Helvetica, sans-serif; color:#1b1b1b; font-style:italic; font-size:12px; line-height: 18px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 10px 0; mso-line-height-rule:exactly; text-align:center;">(coupon at the bottom of this email)</p>';
         $body .= '                            </td>';
         $body .= '                        </tr>';
@@ -272,7 +273,7 @@ class MailerHandler
         $body .= '        </table>';
         $body .= '    </body>';
         $body .= '</html>';
-        $message = Swift_Message::newInstance('Raffle Email')
+        $message = Swift_Message::newInstance('Congratulations! You got entered into a raffle for Freewaters Footwear')
             ->setFrom(array('freewaters.philippines@gmail.com' => 'Freewaters'))
             ->setTo($data['email'])
             ->setBody($body, 'text/html');
