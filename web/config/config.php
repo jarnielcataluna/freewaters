@@ -6,7 +6,7 @@ define("ENV", "PROD");
 
 if (ENV == "PROD") {
 
-    define("DBHOST", "	205.186.138.226");
+    define("DBHOST", "205.186.138.226");
     define("DBNAME", "freewaters_live");
     define("DBUSER", "fw_live_db");
     define("DBPWD", "fwL1v3Db123");
