@@ -190,7 +190,7 @@
 	            } else {
 	                FB.login(function(){
 	                    useFacebook();
-	                }, {scope: 'publish_actions, email, public_profile'});
+	                }, {scope: 'email, public_profile'});
 	            }
 	        });
 
@@ -198,7 +198,21 @@
 
 		  var useFacebook = function() {
 		  	FB.api('/me', {fields: 'id,first_name,last_name,email'}, function(fbResponse) {
-		  		console.log(fbResponse);
+		  		var _fbUid = fbResponse.id;
+		  		var _fname = fbResponse.first_name;
+		  		var _lname = fbResponse.last_name;
+		  		var _email = fbResponse.email;
+
+		  		var email = document.getElementById('email');
+				var fname = document.getElementById('fname');
+				var lname = document.getElementById('lname');
+				var fb_uid = document.getElementById('fb_uid');
+
+				email.value = _email;
+				fname.value = _fname;
+				lname.value = _lname;
+				fb_uid.value = _fbUid;
+
 		  	});
 		  };
 
