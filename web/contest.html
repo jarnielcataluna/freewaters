@@ -166,6 +166,7 @@
 		window.fbAsyncInit = function() {
 		    FB.init({
 		      appId      : '234885553577540',
+		      cookie     : true,
 		      xfbml      : true,
 		      version    : 'v2.7'
 		    });
@@ -179,37 +180,59 @@
 		     fjs.parentNode.insertBefore(js, fjs);
 		   }(document, 'script', 'facebook-jssdk'));
 
-		  	'use strict';
-			 var submit = document.getElementById('submitEntry');
-			 var email = document.getElementById('email');
-			 var fname = document.getElementById('fname');
-			 var lname = document.getElementById('lname');
-			 var fb_uid = document.getElementById('fb_uid');
+		  var useFb = document.getElementById('facebookLogin');
+		  useFb.addEventListener('click', function(e) {
 
-			 submit.addEventListener('click',  function () {
+		  	e.preventDefault();
+	        FB.getLoginStatus(function(response) {
+	            if (response.status === 'connected') {
+	                useFacebook();
+	            } else {
+	                FB.login(function(){
+	                    useFacebook();
+	                }, {scope: 'publish_actions, email, public_profile'});
+	            }
+	        });
 
-			     var data = new FormData();
-			     data.append('email', email.value);
-			     data.append('fname', fname.value);
-			     data.append('lname', lname.value);
-			     data.append('fb_uid', fb_uid.value);
+		  });
 
-			     var xhr = new XMLHttpRequest();
-			     xhr.open('POST', 'https://freewaters.herokuapp.com/raffle-handler.php');
-			     xhr.send(data);
+		  var useFacebook = function() {
+		  	FB.api('/me', {fields: 'id,first_name,last_name,email'}, function(fbResponse) {
+		  		console.log(fbResponse);
+		  	});
+		  };
 
-			     xhr.onreadystatechange = function () {
-			         var DONE = 4;
-			         var OK = 200;
-			         if (xhr.readyState === DONE) {
-			             if (xhr.status === OK) {
-			                 var serverResponse = JSON.parse(xhr.responseText);
-			                 return true;
-			             }
-			         }
-			     };
-			     return false;
-			 });
+	  	'use strict';
+		 var submit = document.getElementById('submitEntry');
+		 var email = document.getElementById('email');
+		 var fname = document.getElementById('fname');
+		 var lname = document.getElementById('lname');
+		 var fb_uid = document.getElementById('fb_uid');
+
+		 submit.addEventListener('click',  function () {
+
+		     var data = new FormData();
+		     data.append('email', email.value);
+		     data.append('fname', fname.value);
+		     data.append('lname', lname.value);
+		     data.append('fb_uid', fb_uid.value);
+
+		     var xhr = new XMLHttpRequest();
+		     xhr.open('POST', 'https://freewaters.herokuapp.com/raffle-handler.php');
+		     xhr.send(data);
+
+		     xhr.onreadystatechange = function () {
+		         var DONE = 4;
+		         var OK = 200;
+		         if (xhr.readyState === DONE) {
+		             if (xhr.status === OK) {
+		                 var serverResponse = JSON.parse(xhr.responseText);
+		                 return true;
+		             }
+		         }
+		     };
+		     return false;
+		 });
 	</script>
 </body>
 </html>
