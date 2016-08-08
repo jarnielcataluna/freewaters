@@ -49,7 +49,7 @@ $body .= '                    <table width="600" border="0" cellpadding="0" cell
 $body .= '                        <tr>';
 $body .= '                            <td class="mobile-padding" style="padding: 20px 30px;">';
 $body .= '                                <h1 style="color:#414042; font-size:20px; line-height: 28px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 5px 0; mso-line-height-rule:exactly; text-align:center; font-weight:bold; ">Thank you for participating in our quiz!</h1>';
-$body .= '                                <p style="color:#414042; font-size:15px; line-height: 18px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 10px 0; mso-line-height-rule:exactly; text-align:center; font-weight:normal;">You\'re already entitled to a <span style="color:#ed1c24;">30% discount</span> from regularly<br>priced items at <span style="color:#ed1c24;">Res-Toe-Run and R.O.X.</span> when you present<br>this coupon.</p>';
+$body .= '                                <p style="color:#414042; font-size:15px; line-height: 18px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 10px 0; mso-line-height-rule:exactly; text-align:center; font-weight:normal;">This discount can only be applied to a separate purchase.</p>';
 $body .= '                                <p style="color:#1b1b1b; font-style:italic; font-size:12px; line-height: 18px; mso-table-lspace:0; mso-table-rspace:0; margin:0 0 10px 0; mso-line-height-rule:exactly; text-align:center;">(coupon at the bottom of this email)</p>';
 $body .= '                            </td>';
 $body .= '                        </tr>';
