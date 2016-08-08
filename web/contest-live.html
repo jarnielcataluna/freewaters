@@ -109,6 +109,17 @@
 	</style>
 </head>
 <body>
+
+	<div id="fb-root"></div>
+	<script>
+	(function(d, s, id){
+	   var js, fjs = d.getElementsByTagName(s)[0];
+	   if (d.getElementById(id)) {return;}
+	   js = d.createElement(s); js.id = id;
+	   js.src = "//connect.facebook.net/en_US/sdk.js";
+	   fjs.parentNode.insertBefore(js, fjs);
+	 }(document, 'script', 'facebook-jssdk'));</script>
+
 	<div class="header">
 		<img src="https://freewaters.herokuapp.com/images/freewaters-header.jpg" alt="Freewaters">
 		<p>Fill-in this short form to be eligible for the draw of 10 gift certificates.</p>
@@ -116,6 +127,9 @@
 
 	<div class="body">
 		<!-- <a href="#" class="btn-order btn-facebook" id="facebookLogin"><img src="http://freewaters.herokuapp.com/images/facebook-white.png" alt="">Log in with Facebook</a> -->
+		<div class="rowWrap" id="thankYou" style="display: none;">
+			<p>Thank you! <br />Kindly check your e-mail account<br />for instructions on how to claim your discount.</p>
+		</div>
 
 		<form action="" id="raffleForm" method="POST" role="form">
 			<input type="hidden" name="fb_uid" id="fb_uid" value="" />
@@ -138,7 +152,13 @@
 				</div>
 				<div class="colHalf">
 					<label for="">Did you like our Facebook Page?*</label>
-					<a href="" id="likeButton"><img src="https://freewaters.herokuapp.com/images/facebook-white.png" alt="">Like</a>
+					<!--<a href="" id="likeButton"><img src="https://freewaters.herokuapp.com/images/facebook-white.png" alt="">Like</a>-->
+					<div class="fb-like" 
+						data-href="https://www.facebook.com/SANUK-Philippines-52149484263/?sk=app_190322544333196&ref=s" 
+						data-layout="standard" 
+						data-action="like" 
+						data-show-faces="true">
+					</div>
 					<div class="inline" style="margin-top: 10px;">
 						<input type="radio" name="like" /><span>Yes</span>
 						<input type="radio" name="like" style="margin-left: 20px;" /><span>No</span>
@@ -157,64 +177,13 @@
 
 				<div class="colHalf">
 					<a href="#" id="submitEntry">SUBMIT</a>
+					<img src="images/ajax-loader.gif" id="ajaxLoader" alt="" style="max-width: 20px; width: 100%; display: none;" />
 				</div>
 			</div>
 		</form>
 	</div>
 	
 	<script>
-		// window.fbAsyncInit = function() {
-		//     FB.init({
-		//       appId      : '234885553577540',
-		//       cookie     : true,
-		//       xfbml      : true,
-		//       version    : 'v2.7'
-		//     });
-		//   };
-
-		//   (function(d, s, id){
-		//      var js, fjs = d.getElementsByTagName(s)[0];
-		//      if (d.getElementById(id)) {return;}
-		//      js = d.createElement(s); js.id = id;
-		//      js.src = "//connect.facebook.net/en_US/sdk.js";
-		//      fjs.parentNode.insertBefore(js, fjs);
-		//    }(document, 'script', 'facebook-jssdk'));
-
-		//   var useFb = document.getElementById('facebookLogin');
-		//   useFb.addEventListener('click', function(e) {
-
-		//   	e.preventDefault();
-	 //        FB.getLoginStatus(function(response) {
-	 //            if (response.status === 'connected') {
-	 //                useFacebook();
-	 //            } else {
-	 //                FB.login(function(){
-	 //                    useFacebook();
-	 //                }, {scope: 'email, public_profile'});
-	 //            }
-	 //        });
-
-		//   });
-
-		//   var useFacebook = function() {
-		//   	FB.api('/me', {fields: 'id,first_name,last_name,email'}, function(fbResponse) {
-		//   		var _fbUid = fbResponse.id;
-		//   		var _fname = fbResponse.first_name;
-		//   		var _lname = fbResponse.last_name;
-		//   		var _email = fbResponse.email;
-
-		//   		var email = document.getElementById('email');
-		// 		var fname = document.getElementById('fname');
-		// 		var lname = document.getElementById('lname');
-		// 		var fb_uid = document.getElementById('fb_uid');
-
-		// 		email.value = _email;
-		// 		fname.value = _fname;
-		// 		lname.value = _lname;
-		// 		fb_uid.value = _fbUid;
-
-		//   	});
-		//   };
 
 	  	'use strict';
 		 var submit = document.getElementById('submitEntry');
@@ -223,7 +192,11 @@
 		 var lname = document.getElementById('lname');
 		 var fb_uid = document.getElementById('fb_uid');
 
+		 var _ajaxLoader = document.getElementById('ajaxLoader');
+
 		 submit.addEventListener('click',  function () {
+		 	 submit.style.display = "none";
+		 	 _ajaxLoader.style.display = "block";
 
 		     var data = new FormData();
 		     data.append('email', email.value);
@@ -241,6 +214,9 @@
 		         if (xhr.readyState === DONE) {
 		             if (xhr.status === OK) {
 		                 var serverResponse = JSON.parse(xhr.responseText);
+		                 document.getElementById('raffleForm').style.display = "none";
+		                 document.getElementById('thankYou').style.display = "block;";
+
 		                 return true;
 		             }
 		         }
