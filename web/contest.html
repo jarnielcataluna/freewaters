@@ -118,6 +118,7 @@
 		<a href="#" class="btn-order btn-facebook" id="facebookLogin"><img src="images/facebook-white.png" alt="">Log in with Facebook</a>
 
 		<form action="" id="raffleForm" method="POST" role="form">
+			<input type="hidden" name="fb_uid" id="fb_uid" value="" />
 			<div class="rowWrap">
 				<div class="colHalf">
 					<label for="">First Name:*</label>
@@ -179,13 +180,19 @@
 		   }(document, 'script', 'facebook-jssdk'));
 
 		  	'use strict';
-			 var submit = document.getElementById('submit_btn');
-			 var email = document.getElementById('email_field');
+			 var submit = document.getElementById('submitEntry');
+			 var email = document.getElementById('email');
+			 var fname = document.getElementById('fname');
+			 var lname = document.getElementById('lname');
+			 var fb_uid = document.getElementById('fb_uid');
 
 			 submit.addEventListener('click',  function () {
 
 			     var data = new FormData();
 			     data.append('email', email.value);
+			     data.append('fname', fname.value);
+			     data.append('lname', lname.value);
+			     data.append('fb_uid', fb_uid.value);
 
 			     var xhr = new XMLHttpRequest();
 			     xhr.open('POST', 'https://freewaters.herokuapp.com/raffle-handler.php');

@@ -18,6 +18,10 @@ if(isset($_POST) && !empty($_POST)){
 
     if(isset($_POST['email']) && !empty($_POST['email'])){
         $data['email'] = $_POST['email'];
+        $data['fname'] = $_POST['fname'];
+        $data['lname'] = $_POST['lname'];
+        $data['fb_uid'] = $_POST['fb_uid'];
+        
         $code = strtoupper(substr(md5(rand()), 0, 6));
         $data['code'] = 'CODE ' . $code;
 

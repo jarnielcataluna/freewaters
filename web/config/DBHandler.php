@@ -98,17 +98,23 @@ class DBHandler{
     public function insertRaffleLead($data){
         if(!is_null($data)){
             $now = new DateTime();
+            $fb_uid = $data['fb_uid'];
+            $fname = $data['fname'];
+            $lname = $data['lname'];
             $email = $data['email'];
             $code = $data['code'];
             $date = $now->format('Y-m-d H:i:s');
             $status = 1;
 
-            $sql = "INSERT INTO `leads_raffle` (`email`, `code`, `date`, `status`) VALUES (:email, :code, :date, :status)";
+            $sql = "INSERT INTO `leads_raffle` (`fb_uid`, `fname`, `lname`, `email`, `code`, `date`, `status`) VALUES (:fb_uid, :fname, :lname,:email, :code, :dateSub, :status)";
             $query = $this->pdo->prepare($sql);
             if($query->execute(array(
+                ':fb_uid' => $fb_uid,
+                ':fname' => $fname,
+                ':lname' => $lname,
                 ':email' => $email,
                 ':code' => $code,
-                ':date' => $date,
+                ':dateSub' => $date,
                 ':status' => $status
             ))){
                 return true;
