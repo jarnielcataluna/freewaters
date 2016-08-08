@@ -63,7 +63,7 @@ class DBHandler{
 
     public function buildRaffleTables(){
         $sql =  'DROP TABLE IF EXISTS `leads_raffle`;
-                CREATE TABLE `leads_raffle` ( `id` INT NOT NULL AUTO_INCREMENT , `email` VARCHAR(255) NOT NULL , `code` VARCHAR(25) NOT NULL , `date` DATETIME NOT NULL , `status` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;';
+                CREATE TABLE `leads_raffle` ( `id` INT NOT NULL AUTO_INCREMENT, `fb_uid` VARCHAR(255) NOT NULL, `fname` VARCHAR(255) NOT NULL, `lname` VARCHAR(255) NOT NULL, `email` VARCHAR(255) NOT NULL , `code` VARCHAR(25) NOT NULL , `date` DATETIME NOT NULL , `status` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;';
 
         $query = $this->pdo->prepare($sql);
         $query->execute();
